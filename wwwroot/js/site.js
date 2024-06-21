@@ -22,12 +22,16 @@ function updateConfirmation(e) {
     let confirmation = confirm('Are you sure you want to update this album?');
     if (!confirmation) {
         e.preventDefault();
+        return false;
     }
+    return true;
 };
 
 function deleteConfirmation(e) {
     let confirmation = confirm('Are you sure you want to delete this album?');
     if (!confirmation) {
         e.preventDefault();
+        return false;
     }
+    return true;
 };

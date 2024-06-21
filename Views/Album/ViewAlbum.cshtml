@@ -28,25 +28,23 @@
 	</tr>
 </table>
 
-@* THIS CODE IS THE PROBLEM 
-<section style="display: flex; flex-direction:row; justify-content: space-between;"> *@
-	@* <div style="display: block" ">  *@
-
+<section style="display: flex; flex-direction:row; justify-content: space-between;">
+	<div>
 	@using (Html.BeginForm("UpdateAlbum", "Album", FormMethod.Post))
 	{
 			<input type="hidden" asp-for="id" value="@Model.id" />
-			<button type="submit" onclick="updateConfirmation()" class="btn-success" style="border-radius: 8px" >Update this album </button>
+			<button type="submit" onclick="updateConfirmation(event)" class="btn-success" style="border-radius: 8px" >Update this album </button>
 	}
- 	@* </div>  *@
+	</div>
 
 	@*  <a href="/Album/UpdateAlbum/@Model.id">Update</div>  *@
 
-	<div style="display: block">
+	<div>
 
 	@using (Html.BeginForm("DeleteAlbum", "Album", FormMethod.Post))
 	{
-			<input type="hidden" asp-for="id" value="@Model.id" />
-		<button type="submit" onclick="deleteConfirmation()" class="btn-danger" style="border-radius: 8px">Delete this album</button>
+		<input type="hidden" asp-for="id" value="@Model.id" />
+		<button type="submit" onclick="deleteConfirmation(event)" class="btn-danger" style="border-radius: 8px">Delete this album</button>
 	}
 	</div>
-@* </section> *@
+</section>
