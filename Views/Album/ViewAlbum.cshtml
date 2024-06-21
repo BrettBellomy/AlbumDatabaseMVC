@@ -1,0 +1,52 @@
+﻿@model Album
+
+<h2>@Model.artist - @Model.album</h2>
+<section style="display: flex; flex-direction:row;">
+	<h6>
+		<a href="@Model.spotify_link">Listen on Spotify</a>
+	</h6>
+	<h6>
+		<a style="padding-left: 10px" href="@Model.applemusic_link">Listen on Apple Music</a>
+	</h6>
+</section>
+
+<iframe style="border-radius:12px" src="@Model.embedded_code" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+<table class="table">
+	<tr>
+		<th>Artist Name</th>
+		<th>Album Name</th>
+		<th>Genre</th>
+		<th>Release Year</th>
+	</tr>
+	<tr>
+		
+		<td>@Model.artist</td>
+		<td>@Model.album</td>
+		<td>@Model.genre</td>
+		<td>@Model.release_year</td>
+	</tr>
+</table>
+
+@* THIS CODE IS THE PROBLEM 
+<section style="display: flex; flex-direction:row; justify-content: space-between;"> *@
+	@* <div style="display: block" ">  *@
+
+	@using (Html.BeginForm("UpdateAlbum", "Album", FormMethod.Post))
+	{
+			<input type="hidden" asp-for="id" value="@Model.id" />
+			<button type="submit" onclick="updateConfirmation()" class="btn-success" style="border-radius: 8px" >Update this album </button>
+	}
+ 	@* </div>  *@
+
+	@*  <a href="/Album/UpdateAlbum/@Model.id">Update</div>  *@
+
+	<div style="display: block">
+
+	@using (Html.BeginForm("DeleteAlbum", "Album", FormMethod.Post))
+	{
+			<input type="hidden" asp-for="id" value="@Model.id" />
+		<button type="submit" onclick="deleteConfirmation()" class="btn-danger" style="border-radius: 8px">Delete this album</button>
+	}
+	</div>
+@* </section> *@

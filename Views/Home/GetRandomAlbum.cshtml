@@ -1,0 +1,30 @@
+﻿@model Album
+
+<h3>@Model.artist - @Model.album</h3>
+
+<section style="display: flex; flex-direction:row;">
+    <h6>
+        <a href="@Model.spotify_link">Listen on Spotify</a>
+    </h6>
+    <h6>
+        <a style="padding-left: 10px" href="@Model.applemusic_link">Listen on Apple Music</a>
+    </h6>
+</section>
+
+<iframe style="border-radius:12px" src=@Model.embedded_code width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<table class="table">
+    <tr>
+        <th>Artist Name</th>
+        <th>Album Name</th>
+        <th>Genre</th>
+        <th>Release Year</th>
+    </tr>
+    <tr>
+        <td>@Model.artist</td>
+        <td>@Model.album</td>
+        <td>@Model.genre</td>
+        <td>@Model.release_year</td>
+    </tr>
+</table>
+  

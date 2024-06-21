@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<Album>
+
+<h2 style="text-align: center">All Albums</h2>
+
+@using (Html.BeginForm("Search", "Album", FormMethod.Get))
+{
+	<p>
+		Search by album name: @Html.TextBox("searchString")
+		<input type="submit" value="Search"/>
+	</p>
+}
+
+<table class="table">
+	<tr style="background-color:darkgray">
+		<th>Artist Name</th>
+		<th>Album Name</th>
+		<th>Genre</th>
+		<th>Release Year</th>
+	</tr>
+
+	@foreach (var album in @Model)
+	{
+		<tr style="background-color:gainsboro">
+			<td>@album.artist</td>
+			<td><a href=/Album/ViewAlbum/@album.id>@album.album</a></td>
+			<td>@album.genre</td>
+			<td>@album.release_year</td>
+		</tr>
+	}
+</table>
+
+<div>
+	@using (Html.BeginForm("InsertAlbum", "Album", "Post"))
+	{
+		<input type="submit" onclick="return confirm('Would you like to add a new album?')" value="Add new album" style="border-radius: 8px" />
+	}
+</div>

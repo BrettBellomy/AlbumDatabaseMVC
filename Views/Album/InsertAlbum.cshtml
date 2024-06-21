@@ -1,0 +1,32 @@
+﻿@model Album
+
+<h2>Add a New Album</h2>
+
+@using (Html.BeginForm("InsertAlbumToDatabase", "Album", "Post"))
+{
+    <input asp-for="id" type="hidden" value="@Model.id" />
+
+    <label asp-for="artist" class="control-label">Artist</label>
+    <input type="text" name="artist" class="form-control" value="@Model.artist" />
+
+    <label asp-for="album" class="control-label">Album</label>
+    <input type="text" name="album" class="form-control" value="@Model.album" />
+
+    <label asp-for="genre" class="control-label">Genre</label>
+    <input type="text" name="genre" class="form-control" value="@Model.genre" />
+
+    <label asp-for="release_year" class="control-label">Release Year</label>
+    <input type="number" step="1" name="Price" class="form-control" value="@Model.release_year" />
+
+    <label asp-for="spotify_link" class="control-label">Spotify Link</label>
+    <input type="text" name="spotify_link" class="form-control" value="@Model.spotify_link" />
+
+    <label asp-for="applemusic_link" class="control-label">Apple Music Link</label>
+    <input type="text" name="applemusic_link" class="form-control" value="@Model.applemusic_link" />
+
+    <label asp-for="embedded_code" class="control-label">Spotify Embedded Code</label>
+    <input type="text" name="embedded_code" class="form-control" value="@Model.embedded_code" />
+
+
+    <input type="submit" value="Create Album" class="btn btn-primary"/>
+}
