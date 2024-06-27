@@ -33,11 +33,19 @@ namespace MusicdbCRUDAppController.Controllers
 			}
 			return View(album);
 		}
-        public IActionResult UpdateAlbumToDatabase(Album album)
+        public IActionResult UpdateAlbumToDatabase(Album input)
         {
-            _albumRepo.UpdateAlbum(album);
+            if (input == null)
+            {
+                return RedirectToAction("Index");
+            }
+            if (input.id == 0)
+            {
+				return RedirectToAction("Index");
+			}
+            _albumRepo.UpdateAlbum(input);
 
-            return RedirectToAction("ViewAlbum", new { id = album.id });
+            return RedirectToAction("ViewAlbum", new { id = input.id });
         }
 
         public IActionResult InsertAlbum(Album album)

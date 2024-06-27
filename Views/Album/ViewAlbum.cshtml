@@ -30,17 +30,16 @@
 
 <section style="display: flex; flex-direction:row; justify-content: space-between;">
 	<div>
-	@using (Html.BeginForm("UpdateAlbum", "Album", FormMethod.Post))
+	@using (Html.BeginForm("UpdateAlbum", "Album", "Post"))
 	{
 			<input type="hidden" asp-for="id" value="@Model.id" />
-			<button type="submit" onclick="updateConfirmation(event)" class="btn-success" style="border-radius: 8px" >Update this album </button>
+			<button type="submit" onclick="updateConfirmation(event)" class="btn-success" style="border-radius: 8px">Update this album</button>
 	}
 	</div>
 
 	@*  <a href="/Album/UpdateAlbum/@Model.id">Update</div>  *@
 
 	<div>
-
 	@using (Html.BeginForm("DeleteAlbum", "Album", FormMethod.Post))
 	{
 		<input type="hidden" asp-for="id" value="@Model.id" />

@@ -6,7 +6,7 @@
 @using (Html.BeginForm("Search", "Album", FormMethod.Get))
 {
 	<p>
-		Search by album name: @Html.TextBox("searchString")
+		Search: @Html.TextBox("searchString")
 		<input type="submit" value="Search"/>
 	</p>
 }

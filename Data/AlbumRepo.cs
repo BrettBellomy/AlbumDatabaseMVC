@@ -44,7 +44,7 @@ namespace MusicdbCRUDAppController.Data
 
 		public IEnumerable<Album> SearchAlbum(string searchString)
 		{
-			return _connection.Query<Album>("SELECT * FROM albums WHERE album LIKE @album ;", new {album = "%" + searchString + "%" });
+			return _connection.Query<Album>("SELECT * FROM albums WHERE album LIKE @album OR artist LIKE @artist OR genre LIKE @genre OR release_year LIKE @release_year;", new {album = "%" + searchString + "%", artist = "%" + searchString + "%", genre = "%" + searchString + "%", release_year = "%" + searchString + "%" });
 		}
 
 		public void UpdateAlbum(Album album)
